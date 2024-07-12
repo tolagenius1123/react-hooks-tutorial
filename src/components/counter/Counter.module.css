@@ -1,0 +1,25 @@
+.counter {
+	height: auto;
+	padding: 10px;
+	border-radius: 10px;
+	border: 1px solid grey;
+}
+
+.value {
+	font-size: 70px;
+	text-align: center;
+}
+
+.btnContainer {
+	display: flex;
+	gap: 20px;
+}
+
+.btn {
+	background: black;
+	color: white;
+	cursor: pointer;
+	border: none;
+	padding: 5px 10px;
+	border-radius: 10px;
+}
