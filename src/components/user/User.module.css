@@ -1,0 +1,38 @@
+.user {
+	height: auto;
+	padding: 10px 20px;
+	border-radius: 10px;
+	border: 1px solid grey;
+}
+
+.heading {
+	font-weight: 500;
+	text-align: center;
+}
+
+.pic {
+	height: 300px;
+	width: 300px;
+	border-radius: 50%;
+}
+
+.details {
+	font-weight: 500;
+	margin-top: 10px;
+}
+
+.form {
+	height: auto;
+	padding: 20px;
+	border-radius: 10px;
+	border: 1px solid black;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.field {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
