@@ -24,8 +24,15 @@ const User = () => {
 		setProfession(updatedProfession);
 
 		// I want to see a notification that tells me profile has been updated successfully here
-
+		alert("Pofile Updated Successfully");
 		// I want you to clear the form for me here
+		setUpdatedFirstName("");
+		setUpdatedLastName("");
+		setUpdatedEmail("");
+		setUpdatedAge("");
+		setUpdatedProfession("");
+
+	
 	};
 
 	return (
