@@ -27,15 +27,21 @@ function App() {
 		setAge(updatedAge);
 		setProfession(updatedProfession);
 
-		// I want to see a notification that tells me profile has been updated successfully here
+		//I want to see a notification that tells me profile has been updated successfully here
 		alert("Pofile Updated Successfully");
-		// I want you to clear the form for me here
+		//I want you to clear the form for me here
 		setUpdatedFirstName("");
 		setUpdatedLastName("");
 		setUpdatedEmail("");
 		setUpdatedAge("");
 		setUpdatedProfession("");
 	};
+
+
+	const[contentA, setContentA] = useState("Andriod");
+	const[contentB, setContentB] = useState("IOS");
+
+	
 
 	return (
 		<div className="home">
@@ -62,8 +68,9 @@ function App() {
 					updatedProfession={updatedProfession}
 					setUpdatedProfession={setUpdatedProfession}
 				/> */}
-				<ComponentA />
-				<ComponentB />
+                <ComponentA contentA={contentB} /> 
+			    <ComponentB contentB={contentA}/> 
+		
 			</div>
 		</div>
 	);

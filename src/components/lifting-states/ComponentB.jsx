@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
-const ComponentB = () => {
-	const [os, setOs] = useState("IOS");
+const ComponentB = ({contentB}) => {
+	//const [osB, setOsB] = useState("IOS");
 	return (
 		<div className="liftingStates">
-			<h1>Component {os}</h1>
-			<p>This is an {os} component</p>
+			<h1>Component {contentB}</h1>
+			<p>This is an {contentB} component</p>
 		</div>
 	);
 };

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
-const ComponentA = () => {
-	const [os, setOs] = useState("Android");
+const ComponentA = ({contentA}) => {
+	//const [osA, setOsA] = useState("Andriod");
 	return (
 		<div className="liftingStates">
-			<h1>Component {os}</h1>
-			<p>This is an {os} component</p>
+			<h1>Component {contentA}</h1>
+			<p>This is an {contentA} component</p>
 		</div>
 	);
 };
