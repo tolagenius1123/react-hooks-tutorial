@@ -48,14 +48,14 @@ function App() {
 			<Navbar />
 			<div className="event">
 				{/* <Counter /> */}
-				{/* <User
+				<User
 					firstName={firstName}
 					lastName={lastName}
 					email={email}
 					age={age}
 					profession={profession}
-				/> */}
-				{/* <UpdateUser
+				/>
+				<UpdateUser
 					handleSubmit={handleSubmit}
 					updatedFirstName={updatedFirstName}
 					setUpdatedFirstName={setUpdatedFirstName}
@@ -67,10 +67,10 @@ function App() {
 					setUpdatedAge={setUpdatedAge}
 					updatedProfession={updatedProfession}
 					setUpdatedProfession={setUpdatedProfession}
-				/> */}
-                <ComponentA contentA={contentB} /> 
+				/>
+                {/* <ComponentA contentA={contentB} /> 
 			    <ComponentB contentB={contentA}/> 
-		
+		 */}
 			</div>
 		</div>
 	);

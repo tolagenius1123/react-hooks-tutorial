@@ -14,6 +14,16 @@ const UpdateUser = ({
 	updatedProfession,
 	setUpdatedProfession,
 }) => {
+	const isFormValid = () => {
+		return (
+		  updatedFirstName.trim() !== '' && 
+		  updatedLastName.trim() !== '' &&
+		  updatedEmail.trim() !== '' &&
+		  !isNaN(updatedAge) &&
+		  updatedProfession.trim() !== ''
+		);
+	  };
+	
 	return (
 		<div>
 			<form className={styles.form} onSubmit={handleSubmit}>
@@ -28,6 +38,8 @@ const UpdateUser = ({
 							setUpdatedFirstName(event.target.value)
 						}
 					/>
+					 {updatedFirstName.trim() === '' }
+
 				</div>
 				<div className={styles.field}>
 					<label htmlFor="lastName">Lastname</label>
@@ -39,6 +51,7 @@ const UpdateUser = ({
 							setUpdatedLastName(event.target.value)
 						}
 					/>
+					{updatedLastName.trim() === '' }
 				</div>
 				<div className={styles.field}>
 					<label htmlFor="email">Email</label>
@@ -50,6 +63,8 @@ const UpdateUser = ({
 							setUpdatedEmail(event.target.value)
 						}
 					/>
+					 {updatedEmail.trim() === '' }
+					 {!/\S+@\S+\.\S+/.test(updatedEmail) }
 				</div>
 				<div className={styles.field}>
 					<label htmlFor="age">Age</label>
@@ -59,6 +74,8 @@ const UpdateUser = ({
 						value={updatedAge}
 						onChange={(event) => setUpdatedAge(event.target.value)}
 					/>
+					 {updatedAge.trim() === ''}
+					 {isNaN(updatedAge) }
 				</div>
 				<div className={styles.field}>
 					<label htmlFor="profession">Profession</label>
@@ -70,8 +87,9 @@ const UpdateUser = ({
 							setUpdatedProfession(event.target.value)
 						}
 					/>
+					{updatedProfession.trim() === ''}
 				</div>
-				<button type="submit">Submit</button>
+				<button type="submit" disabled={!isFormValid()}  >Submit</button>
 			</form>
 		</div>
 	);
