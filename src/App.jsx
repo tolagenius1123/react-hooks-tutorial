@@ -2,6 +2,7 @@ import { useState } from "react";
 import Navbar from "./components/navbar/Navbar";
 import UpdateUser from "./components/update-user/UpdateUser";
 import User from "./components/user/User";
+import Counter from "./components/counter/Counter";
 
 function App() {
 	// const [firstName, setFirstName] = useState("Omotola");
@@ -39,6 +40,7 @@ function App() {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
+
 		const {
 			updatedFirstName,
 			updatedLastName,
@@ -46,6 +48,17 @@ function App() {
 			updatedAge,
 			updatedProfession,
 		} = updatedUser;
+
+		if (
+			!updatedFirstName ||
+			!updatedLastName ||
+			!updatedEmail ||
+			!updatedAge ||
+			!updatedProfession
+		) {
+			alert("All fields are required");
+			return;
+		}
 
 		setUser({
 			firstName: updatedFirstName,
@@ -71,12 +84,13 @@ function App() {
 		<div className="home">
 			<Navbar />
 			<div className="event">
-				<User user={user} />
+				{/* <User user={user} />
 				<UpdateUser
 					handleSubmit={handleSubmit}
 					updatedUser={updatedUser}
 					handleChange={handleChange}
-				/>
+				/> */}
+				<Counter />
 			</div>
 		</div>
 	);
