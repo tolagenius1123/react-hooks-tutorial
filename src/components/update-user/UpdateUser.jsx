@@ -1,29 +1,13 @@
-import { useState } from "react";
 import styles from "./Update.module.css";
 
-const UpdateUser = ({
-	handleSubmit,
-	updatedFirstName,
-	setUpdatedFirstName,
-	updatedLastName,
-	setUpdatedLastName,
-	updatedAge,
-	setUpdatedAge,
-	updatedEmail,
-	setUpdatedEmail,
-	updatedProfession,
-	setUpdatedProfession,
-}) => {
-	const isFormValid = () => {
-		return (
-		  updatedFirstName.trim() !== '' && 
-		  updatedLastName.trim() !== '' &&
-		  updatedEmail.trim() !== '' &&
-		  !isNaN(updatedAge) &&
-		  updatedProfession.trim() !== ''
-		);
-	  };
-	
+const UpdateUser = ({ updatedUser, handleSubmit, handleChange }) => {
+	const {
+		updatedFirstName,
+		updatedLastName,
+		updatedEmail,
+		updatedAge,
+		updatedProfession,
+	} = updatedUser;
 	return (
 		<div>
 			<form className={styles.form} onSubmit={handleSubmit}>
@@ -32,11 +16,9 @@ const UpdateUser = ({
 					<label htmlFor="firstName">Firstname</label>
 					<input
 						type="text"
-						name="firstName"
+						name="updatedFirstName"
 						value={updatedFirstName}
-						onChange={(event) =>
-							setUpdatedFirstName(event.target.value)
-						}
+						onChange={handleChange}
 					/>
 					 {updatedFirstName.trim() === '' }
 
@@ -45,11 +27,9 @@ const UpdateUser = ({
 					<label htmlFor="lastName">Lastname</label>
 					<input
 						type="text"
-						name="lastName"
+						name="updatedLastName"
 						value={updatedLastName}
-						onChange={(event) =>
-							setUpdatedLastName(event.target.value)
-						}
+						onChange={handleChange}
 					/>
 					{updatedLastName.trim() === '' }
 				</div>
@@ -57,11 +37,9 @@ const UpdateUser = ({
 					<label htmlFor="email">Email</label>
 					<input
 						type="text"
-						name="email"
+						name="updatedEmail"
 						value={updatedEmail}
-						onChange={(event) =>
-							setUpdatedEmail(event.target.value)
-						}
+						onChange={handleChange}
 					/>
 					 {updatedEmail.trim() === '' }
 					 {!/\S+@\S+\.\S+/.test(updatedEmail) }
@@ -70,9 +48,9 @@ const UpdateUser = ({
 					<label htmlFor="age">Age</label>
 					<input
 						type="number"
-						name="age"
+						name="updatedAge"
 						value={updatedAge}
-						onChange={(event) => setUpdatedAge(event.target.value)}
+						onChange={handleChange}
 					/>
 					 {updatedAge.trim() === ''}
 					 {isNaN(updatedAge) }
@@ -81,11 +59,9 @@ const UpdateUser = ({
 					<label htmlFor="profession">Profession</label>
 					<input
 						type="text"
-						name="profession"
+						name="updatedProfession"
 						value={updatedProfession}
-						onChange={(event) =>
-							setUpdatedProfession(event.target.value)
-						}
+						onChange={handleChange}
 					/>
 					{updatedProfession.trim() === ''}
 				</div>

@@ -1,76 +1,82 @@
 import { useState } from "react";
-import Counter from "./components/counter/Counter";
 import Navbar from "./components/navbar/Navbar";
 import UpdateUser from "./components/update-user/UpdateUser";
 import User from "./components/user/User";
-import ComponentA from "./components/lifting-states/ComponentA";
-import ComponentB from "./components/lifting-states/ComponentB";
 
 function App() {
-	const [firstName, setFirstName] = useState("Omotola");
-	const [lastName, setLastName] = useState("Jinadu");
-	const [email, setEmail] = useState("tolajinadu1123@gmail.com");
-	const [age, setAge] = useState("40");
-	const [profession, setProfession] = useState("Software Engineer");
+	// const [firstName, setFirstName] = useState("Omotola");
+	// const [lastName, setLastName] = useState("Jinadu");
+	// const [email, setEmail] = useState("tolajinadu1123@gmail.com");
+	// const [age, setAge] = useState("40");
+	// const [profession, setProfession] = useState("Software Engineer");
 
-	const [updatedFirstName, setUpdatedFirstName] = useState("");
-	const [updatedLastName, setUpdatedLastName] = useState("");
-	const [updatedEmail, setUpdatedEmail] = useState("");
-	const [updatedAge, setUpdatedAge] = useState("");
-	const [updatedProfession, setUpdatedProfession] = useState("");
+	const [user, setUser] = useState({
+		firstName: "Omotola",
+		lastName: "Jinadu",
+		email: "tolajinadu1123@gmail.com",
+		age: "40",
+		profession: "Software Engineer",
+	});
+
+	// const [updatedFirstName, setUpdatedFirstName] = useState("");
+	// const [updatedLastName, setUpdatedLastName] = useState("");
+	// const [updatedEmail, setUpdatedEmail] = useState("");
+	// const [updatedAge, setUpdatedAge] = useState("");
+	// const [updatedProfession, setUpdatedProfession] = useState("");
+
+	const [updatedUser, setUpdatedUser] = useState({
+		updatedFirstName: "",
+		updatedLastName: "",
+		updatedEmail: "",
+		updatedAge: "",
+		updatedProfession: "",
+	});
+
+	const handleChange = (event) => {
+		const { name, value } = event.target;
+		setUpdatedUser((prev) => ({ ...prev, [name]: value }));
+	};
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		setFirstName(updatedFirstName);
-		setLastName(updatedLastName);
-		setEmail(updatedEmail);
-		setAge(updatedAge);
-		setProfession(updatedProfession);
+		const {
+			updatedFirstName,
+			updatedLastName,
+			updatedEmail,
+			updatedAge,
+			updatedProfession,
+		} = updatedUser;
+
+		setUser({
+			firstName: updatedFirstName,
+			lastName: updatedLastName,
+			email: updatedEmail,
+			age: updatedAge,
+			profession: updatedProfession,
+		});
 
 		//I want to see a notification that tells me profile has been updated successfully here
 		alert("Pofile Updated Successfully");
 		//I want you to clear the form for me here
-		setUpdatedFirstName("");
-		setUpdatedLastName("");
-		setUpdatedEmail("");
-		setUpdatedAge("");
-		setUpdatedProfession("");
+		setUpdatedUser({
+			updatedFirstName: "",
+			updatedLastName: "",
+			updatedEmail: "",
+			updatedAge: "",
+			updatedProfession: "",
+		});
 	};
-
-
-	const[contentA, setContentA] = useState("Andriod");
-	const[contentB, setContentB] = useState("IOS");
-
-	
 
 	return (
 		<div className="home">
 			<Navbar />
 			<div className="event">
-				{/* <Counter /> */}
-				<User
-					firstName={firstName}
-					lastName={lastName}
-					email={email}
-					age={age}
-					profession={profession}
-				/>
+				<User user={user} />
 				<UpdateUser
 					handleSubmit={handleSubmit}
-					updatedFirstName={updatedFirstName}
-					setUpdatedFirstName={setUpdatedFirstName}
-					updatedLastName={updatedLastName}
-					setUpdatedLastName={setUpdatedLastName}
-					updatedEmail={updatedEmail}
-					setUpdatedEmail={setUpdatedEmail}
-					updatedAge={updatedAge}
-					setUpdatedAge={setUpdatedAge}
-					updatedProfession={updatedProfession}
-					setUpdatedProfession={setUpdatedProfession}
+					updatedUser={updatedUser}
+					handleChange={handleChange}
 				/>
-                {/* <ComponentA contentA={contentB} /> 
-			    <ComponentB contentB={contentA}/> 
-		 */}
 			</div>
 		</div>
 	);
