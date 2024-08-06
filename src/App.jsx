@@ -3,6 +3,7 @@ import Navbar from "./components/navbar/Navbar";
 import UpdateUser from "./components/update-user/UpdateUser";
 import User from "./components/user/User";
 import Counter from "./components/counter/Counter";
+import Login from "./components/auth/Login";
 
 function App() {
 	// const [firstName, setFirstName] = useState("Omotola");
@@ -90,7 +91,8 @@ function App() {
 					updatedUser={updatedUser}
 					handleChange={handleChange}
 				/> */}
-				<Counter />
+				{/* <Counter /> */}
+				<Login />
 			</div>
 		</div>
 	);
