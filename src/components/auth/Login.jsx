@@ -1,10 +1,11 @@
 import { useState } from "react";
 import "./Login.css";
 import { useEffect } from "react";
-import { toast } from 'react-hot-toast';
+import { toast } from "react-hot-toast";
+import ClipLoader from "react-spinners/ClipLoader";
 
 const Login = () => {
-    
+	const [isLoading, setIsLoading] = useState(false);
 	const [userInfo, setUserInfo] = useState({
 		email: "",
 		password: "",
@@ -24,37 +25,54 @@ const Login = () => {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-	    
-		if (!userInfo.email) {
-			setError((prev) => ({
-				...prev,
-				email: "Email is a required field",
-			}));
-			// return;
-		} if(!userInfo.password){
-			setError((prev) => ({
-				...prev,
-				password: "Password is a required field",
-			}));
 
-		} if(!userInfo.role){
-			setError((prev) => ({
-				...prev,
-				role: "Role is a required field",
-			}));
+		// if (!userInfo.email) {
+		// 	setError((prev) => ({
+		// 		...prev,
+		// 		email: "Email is a required field",
+		// 	}));
+		// 	return;
+		// }
+		// if (!userInfo.password) {
+		// 	setError((prev) => ({
+		// 		...prev,
+		// 		password: "Password is a required field",
+		// 	}));
+		// 	return;
+		// }
+		// if (!userInfo.role) {
+		// 	setError((prev) => ({
+		// 		...prev,
+		// 		role: "Role is a required field",
+		// 	}));
+		// 	return;
+		// }
 
-		}	
-	};
-	
+		if (!userInfo.email || !userInfo.password || !userInfo.role) {
+			toast.error("All fields are required");
+			return;
+		}
 
-		useEffect(() => {
-			setError((prev) => ({
-				...prev,
+		setIsLoading(true);
+		setTimeout(() => {
+			toast.success("Login successful");
+			setIsLoading(false);
+			setUserInfo({
 				email: "",
-				password:"",
-				role:"",
-			}));
-		}, [userInfo.email,userInfo.password,userInfo.role]);
+				password: "",
+				role: "",
+			});
+		}, 5000);
+	};
+
+	useEffect(() => {
+		setError((prev) => ({
+			...prev,
+			email: "",
+			password: "",
+			role: "",
+		}));
+	}, [userInfo.email, userInfo.password, userInfo.role]);
 
 	return (
 		<form onSubmit={handleSubmit}>
@@ -97,7 +115,22 @@ const Login = () => {
 				</select>
 				<p>{error.role}</p>
 			</div>
-			<button type="submit">Login</button>
+			{/* <button type="submit">
+				{isLoading ? "Submitting.." : "Submit"}
+			</button> */}
+			<button type="submit">
+				{isLoading ? (
+					<ClipLoader
+						color={"#fff"}
+						loading={isLoading}
+						size={30}
+						aria-label="Loading Spinner"
+						data-testid="loader"
+					/>
+				) : (
+					"Submit"
+				)}
+			</button>
 		</form>
 	);
 };
