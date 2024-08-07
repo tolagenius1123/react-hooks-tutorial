@@ -4,6 +4,8 @@ import UpdateUser from "./components/update-user/UpdateUser";
 import User from "./components/user/User";
 import Counter from "./components/counter/Counter";
 import Login from "./components/auth/Login";
+import {toast} from "react-hot-toast";
+
 
 function App() {
 	// const [firstName, setFirstName] = useState("Omotola");
