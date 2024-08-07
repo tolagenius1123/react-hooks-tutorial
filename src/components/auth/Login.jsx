@@ -1,8 +1,10 @@
 import { useState } from "react";
 import "./Login.css";
 import { useEffect } from "react";
+import { toast } from 'react-hot-toast';
 
 const Login = () => {
+    
 	const [userInfo, setUserInfo] = useState({
 		email: "",
 		password: "",
@@ -22,24 +24,37 @@ const Login = () => {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-
+	    
 		if (!userInfo.email) {
 			setError((prev) => ({
 				...prev,
 				email: "Email is a required field",
 			}));
-			return;
-		}
+			// return;
+		} if(!userInfo.password){
+			setError((prev) => ({
+				...prev,
+				password: "Password is a required field",
+			}));
 
-		console.log(userInfo);
+		} if(!userInfo.role){
+			setError((prev) => ({
+				...prev,
+				role: "Role is a required field",
+			}));
+
+		}	
 	};
+	
 
-	useEffect(() => {
-		setError((prev) => ({
-			...prev,
-			email: "",
-		}));
-	}, [userInfo.email]);
+		useEffect(() => {
+			setError((prev) => ({
+				...prev,
+				email: "",
+				password:"",
+				role:"",
+			}));
+		}, [userInfo.email,userInfo.password,userInfo.role]);
 
 	return (
 		<form onSubmit={handleSubmit}>
@@ -66,6 +81,7 @@ const Login = () => {
 					value={userInfo.password}
 					onChange={handleChange}
 				/>
+				<p>{error.password}</p>
 			</div>
 			<div className="input-field">
 				<label htmlFor="password">Role</label>
@@ -79,6 +95,7 @@ const Login = () => {
 					<option value="ADMIN">Admin</option>
 					<option value="USER">User</option>
 				</select>
+				<p>{error.role}</p>
 			</div>
 			<button type="submit">Login</button>
 		</form>

@@ -20,6 +20,8 @@ const UpdateUser = ({ updatedUser, handleSubmit, handleChange }) => {
 						value={updatedFirstName}
 						onChange={handleChange}
 					/>
+					 {updatedFirstName.trim() === '' }
+
 				</div>
 				<div className={styles.field}>
 					<label htmlFor="lastName">Lastname</label>
@@ -29,6 +31,7 @@ const UpdateUser = ({ updatedUser, handleSubmit, handleChange }) => {
 						value={updatedLastName}
 						onChange={handleChange}
 					/>
+					{updatedLastName.trim() === '' }
 				</div>
 				<div className={styles.field}>
 					<label htmlFor="email">Email</label>
@@ -38,6 +41,8 @@ const UpdateUser = ({ updatedUser, handleSubmit, handleChange }) => {
 						value={updatedEmail}
 						onChange={handleChange}
 					/>
+					 {updatedEmail.trim() === '' }
+					 {!/\S+@\S+\.\S+/.test(updatedEmail) }
 				</div>
 				<div className={styles.field}>
 					<label htmlFor="age">Age</label>
@@ -47,6 +52,8 @@ const UpdateUser = ({ updatedUser, handleSubmit, handleChange }) => {
 						value={updatedAge}
 						onChange={handleChange}
 					/>
+					 {updatedAge.trim() === ''}
+					 {isNaN(updatedAge) }
 				</div>
 				<div className={styles.field}>
 					<label htmlFor="profession">Profession</label>
@@ -56,8 +63,9 @@ const UpdateUser = ({ updatedUser, handleSubmit, handleChange }) => {
 						value={updatedProfession}
 						onChange={handleChange}
 					/>
+					{updatedProfession.trim() === ''}
 				</div>
-				<button type="submit">Submit</button>
+				<button type="submit" disabled={!isFormValid()}  >Submit</button>
 			</form>
 		</div>
 	);
