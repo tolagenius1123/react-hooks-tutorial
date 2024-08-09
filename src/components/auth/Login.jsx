@@ -3,8 +3,11 @@ import "./Login.css";
 import { useEffect } from "react";
 import { toast } from "react-hot-toast";
 import ClipLoader from "react-spinners/ClipLoader";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+	const navigate = useNavigate();
+
 	const [isLoading, setIsLoading] = useState(false);
 	const [userInfo, setUserInfo] = useState({
 		email: "",
@@ -53,10 +56,19 @@ const Login = () => {
 			return;
 		}
 
+		localStorage.setItem("user", JSON.stringify(userInfo));
+
 		setIsLoading(true);
 		setTimeout(() => {
 			toast.success("Login successful");
 			setIsLoading(false);
+			setTimeout(() => {
+				if (userInfo.role === "ADMIN") {
+					navigate("/admin/dashboard");
+				} else {
+					navigate("/dashboard");
+				}
+			}, 3000);
 			setUserInfo({
 				email: "",
 				password: "",

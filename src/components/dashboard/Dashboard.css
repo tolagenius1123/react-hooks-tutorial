@@ -7,27 +7,62 @@
 
 .sidebar {
 	height: 100vh;
-	width: 30%;
+	width: 20%;
 	background: blueviolet;
 	color: white;
 	padding: 20px;
+}
+
+.sidebar .links {
+	margin-top: 15px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.sidebar .links .route {
+	background: white;
+	padding: 10px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+	color: blueviolet;
+}
+
+.sidebar .links .route:hover {
+	background: #eeedeb;
 }
 
 .container {
 	display: flex;
 	flex-direction: column;
 	height: 100vh;
-	width: 70%;
+	width: 80%;
 }
 
 .container .header {
 	width: 100%;
-	height: 20vh;
-	background: yellow;
+	height: 15vh;
+	background: white;
+	padding: 0px 20px;
+	display: flex;
+	align-items: center;
+}
+
+.container .header p {
+	font-weight: 500;
 }
 
 .container .content {
 	width: 100%;
-	height: 80vh;
-	background: red;
+	height: 85vh;
+	background: #eeedeb;
+	padding: 20px;
+}
+
+.container .content .view {
+	width: 100%;
+	height: 100%;
+	background: white;
+	padding: 20px;
+	border-radius: 10px;
 }

@@ -5,6 +5,7 @@ import User from "./components/user/User";
 import Counter from "./components/counter/Counter";
 import Login from "./components/auth/Login";
 import { Toaster } from "react-hot-toast";
+import Dashboard from "./components/dashboard/Dashboard";
 
 function App() {
 	// const [firstName, setFirstName] = useState("Omotola");
@@ -83,20 +84,19 @@ function App() {
 	};
 
 	return (
-		<div className="home">
-			<Navbar />
-			<div className="event">
-				{/* <User user={user} />
-				<UpdateUser
-					handleSubmit={handleSubmit}
-					updatedUser={updatedUser}
-					handleChange={handleChange}
-				/> */}
-				{/* <Counter /> */}
-				<Login />
+		<>
+			<div className="home">
+				<Navbar />
+				<div className="event">
+					<Login />
+				</div>
+				<Toaster position="top-right" />
 			</div>
-			<Toaster position="top-right" />
-		</div>
+			{/* <div className="home">
+				<Dashboard />
+				<Toaster position="top-right" />
+			</div> */}
+		</>
 	);
 }
 
