@@ -6,6 +6,8 @@ import Counter from "./components/counter/Counter";
 import Login from "./components/auth/Login";
 import { Toaster } from "react-hot-toast";
 import Dashboard from "./components/dashboard/Dashboard";
+import { useNavigate } from "react-router-dom";
+
 
 function App() {
 	// const [firstName, setFirstName] = useState("Omotola");
@@ -13,7 +15,7 @@ function App() {
 	// const [email, setEmail] = useState("tolajinadu1123@gmail.com");
 	// const [age, setAge] = useState("40");
 	// const [profession, setProfession] = useState("Software Engineer");
-
+   
 	const [user, setUser] = useState({
 		firstName: "Omotola",
 		lastName: "Jinadu",
