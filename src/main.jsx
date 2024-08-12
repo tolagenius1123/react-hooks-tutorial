@@ -18,6 +18,7 @@ const router = createBrowserRouter([
 		path: "/admin/dashboard",
 		element: <Dashboard />,
 	},
+	
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
