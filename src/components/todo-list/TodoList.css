@@ -1,0 +1,33 @@
+.todo-page {
+	display: flex;
+	gap: 5px;
+	margin-top: 10px;
+}
+
+.todo-page input {
+	height: 40px;
+	width: 100%;
+	border-radius: 5px;
+	padding: 0 10px;
+	border: 1px solid blueviolet;
+}
+
+.todo-page button {
+	background: white;
+	color: black;
+	cursor: pointer;
+	border-radius: 5px;
+	padding: 5px 10px;
+	border: none;
+}
+
+.todos {
+	background: white;
+	color: black;
+	cursor: pointer;
+	border-radius: 5px;
+	padding: 5px 10px;
+	border: none;
+	margin-top: 10px;
+	font-size: 12px;
+}

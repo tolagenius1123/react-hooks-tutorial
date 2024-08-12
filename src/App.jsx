@@ -7,7 +7,7 @@ import Login from "./components/auth/Login";
 import { Toaster } from "react-hot-toast";
 import Dashboard from "./components/dashboard/Dashboard";
 import { useNavigate } from "react-router-dom";
-
+import TodoList from "./components/todo-list/TodoList";
 
 function App() {
 	// const [firstName, setFirstName] = useState("Omotola");
@@ -15,7 +15,7 @@ function App() {
 	// const [email, setEmail] = useState("tolajinadu1123@gmail.com");
 	// const [age, setAge] = useState("40");
 	// const [profession, setProfession] = useState("Software Engineer");
-   
+
 	const [user, setUser] = useState({
 		firstName: "Omotola",
 		lastName: "Jinadu",
@@ -90,7 +90,8 @@ function App() {
 			<div className="home">
 				<Navbar />
 				<div className="event">
-					<Login />
+					{/* <Login /> */}
+					<TodoList />
 				</div>
 				<Toaster position="top-right" />
 			</div>
