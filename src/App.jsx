@@ -37,7 +37,6 @@ function App() {
 		updatedAge: "",
 		updatedProfession: "",
 	});
-
 	const handleChange = (event) => {
 		const { name, value } = event.target;
 		setUpdatedUser((prev) => ({ ...prev, [name]: value }));
