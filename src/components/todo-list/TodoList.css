@@ -30,4 +30,15 @@
 	border: none;
 	margin-top: 10px;
 	font-size: 12px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.todos button{
+   background-color: red;
+   color: white;
+   padding: 5px 10px;
+   border-radius: 5px;
+   border: none;
+   cursor: pointer;
 }
