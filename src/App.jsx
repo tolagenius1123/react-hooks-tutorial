@@ -73,7 +73,7 @@ function App() {
 		});
 
 		//I want to see a notification that tells me profile has been updated successfully here
-		alert("Pofile Updated Successfully");
+		alert("Profile Updated Successfully");
 		//I want you to clear the form for me here
 		setUpdatedUser({
 			updatedFirstName: "",

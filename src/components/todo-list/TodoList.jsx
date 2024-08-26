@@ -1,17 +1,43 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import "./TodoList.css";
 
 
   const TodoList = () => {
-    const [todos, setTodos] = useState([]);
+    const [todos, setTodos] = useState(()=> {
+        const storedTodos = localStorage.getItem('todos');
+        return storedTodos ? JSON.parse(storedTodos) : [];
+    });
     const [todo, setTodo] = useState("");
-    const [editingTodoId, setEditingTodoId] = useState(null); 
-    const [editText, setEditText] = useState(""); 
+    const [editingTodoId, setEditingTodoId] = useState(null);
+    const [editText, setEditText] = useState("");
+
+
+     useEffect(() => {
+       window.localStorage.setItem("todos", JSON.stringify(todos));
+     }, [todos]);
+
+
+    
+    // useEffect(() => {
+    //   const storedTodos = JSON.parse(window.localStorage.getItem("todos")) ;
+    //   if (storedTodos) {
+    //     setTodos(storedTodos);
+    //   }
+    // }, []);
+
+    
+    // useEffect(() => {
+    //   window.localStorage.setItem("todos", JSON.stringify(todos));
+    // }, [todos]);
+
+
 
     const deleteTodo = (id) => {
       const newTodos = todos.filter((todo) => todo.id !== id);
       setTodos(newTodos);
     };
+
+      
 
     const handleAddTodo = (event) => {
       event.preventDefault();
